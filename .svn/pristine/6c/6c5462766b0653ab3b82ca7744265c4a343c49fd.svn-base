@@ -1,0 +1,13 @@
+org\nilohit\movies\ShowAllMovieResponse.class
+org\nilohit\movies\BookMyMovieResponse.class
+org\nilohit\movies\BookMyMovieRequest.class
+org\nilohit\movies\ObjectFactory.class
+org\nilohit\movies\Order.class
+org\nilohit\movies\ShowAllMovieRequest.class
+org\nilohit\movies\CustomerMovieOrdersPortType.class
+org\nilohit\movies\MovieDetails.class
+org\nilohit\movies\MovieService.class
+org\nilohit\movies\CancelMyMovieRequest.class
+org\nilohit\movies\CancelMyMovieResponse.class
+com\movies\services\detail\ServiceImpl.class
+org\nilohit\movies\package-info.class

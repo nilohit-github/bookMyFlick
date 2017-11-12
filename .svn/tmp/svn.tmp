@@ -1,0 +1,38 @@
+package com.movies.services.detail;
+
+import org.nilohit.movies.BookMyMovieRequest;
+import org.nilohit.movies.BookMyMovieResponse;
+import org.nilohit.movies.CancelMyMovieRequest;
+import org.nilohit.movies.CancelMyMovieResponse;
+import org.nilohit.movies.CustomerMovieOrdersPortType;
+import org.nilohit.movies.ShowAllMovieRequest;
+import org.nilohit.movies.ShowAllMovieResponse;
+
+
+
+
+public class ServiceImpl implements CustomerMovieOrdersPortType {
+	String test;
+
+	@Override
+	public CancelMyMovieResponse cancelMyMovies(CancelMyMovieRequest parameters) {
+		// TODO Auto-generated method stub
+		//test commit
+		//test allll
+		return null;
+	}
+
+	@Override
+	public ShowAllMovieResponse getMovies(ShowAllMovieRequest parameters) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public BookMyMovieResponse bookMyMovies(BookMyMovieRequest parameters) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	
+}

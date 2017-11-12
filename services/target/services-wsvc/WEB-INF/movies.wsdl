@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:tns="http://www.nilohit.org/movies/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="MovieService"
+	targetNamespace="http://www.nilohit.org/movies/">
+	<wsdl:types>
+		<xsd:schema targetNamespace="http://www.nilohit.org/movies/">
+
+			<xsd:complexType name="movieDetails">
+				<xsd:sequence>
+					<xsd:element name="id" type="xsd:string"/>
+					<xsd:element name="movieName" type="xsd:string" />
+					<xsd:element name="releaseDt" type="xsd:date" />
+					<xsd:element name="synopsis" type="xsd:string" />
+					<xsd:element name="favourite" type="xsd:boolean" />
+					<xsd:element name="imdb" type="xsd:float" />
+				</xsd:sequence>
+			</xsd:complexType>
+
+
+			<xsd:complexType name="Order">
+				<xsd:sequence>
+					<xsd:element name="id" type="xsd:string" />
+					<xsd:element name="movieID" type="xsd:string" />
+					<xsd:element name="theaterID" type="xsd:string" />
+					<xsd:element name="movieDay" type="xsd:date" />
+
+				</xsd:sequence>
+			</xsd:complexType>
+
+
+
+			<xsd:element name="showAllMovieRequest" type="tns:showAllMovieRequest" />
+
+			<xsd:element name="showAllMovieResponse" type="tns:showAllMovieResponse" />
+
+			<xsd:complexType name="showAllMovieRequest">
+				<xsd:sequence>
+					<xsd:element minOccurs="1" name="theaterId" type="xsd:string" />
+				</xsd:sequence>
+			</xsd:complexType>
+
+			<xsd:complexType name="showAllMovieResponse">
+				<xsd:sequence>
+					<xsd:element minOccurs="0" maxOccurs="unbounded" name="movieDetails"
+						type="tns:movieDetails" />
+				</xsd:sequence>
+			</xsd:complexType>
+
+			<xsd:element name="bookMyMovieRequest" type="tns:bookMyMovieRequest" />
+
+			<xsd:element name="bookMyMovieResponse" type="tns:bookMyMovieResponse" />
+
+			<xsd:complexType name="bookMyMovieRequest">
+				<xsd:sequence>
+					<xsd:element minOccurs="1" name="Order" type="tns:Order" />
+				</xsd:sequence>
+			</xsd:complexType>
+
+			<xsd:complexType name="bookMyMovieResponse">
+				<xsd:sequence>
+					<xsd:element minOccurs="1" maxOccurs="1"
+						name="bookMovieResponse" type="xsd:boolean" />
+				</xsd:sequence>
+			</xsd:complexType>
+
+
+
+			<xsd:element name="cancelMyMovieRequest" type="tns:cancelMyMovieRequest" />
+
+			<xsd:element name="cancelMyMovieResponse" type="tns:cancelMyMovieResponse" />
+
+			<xsd:complexType name="cancelMyMovieRequest">
+				<xsd:sequence>
+					<xsd:element minOccurs="1" name="cancelID" type="xsd:string" />
+				</xsd:sequence>
+			</xsd:complexType>
+
+			<xsd:complexType name="cancelMyMovieResponse">
+				<xsd:sequence>
+					<xsd:element minOccurs="1" maxOccurs="1"
+						name="cancelMovieResponse" type="xsd:boolean" />
+				</xsd:sequence>
+			</xsd:complexType>
+
+
+
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="showAllMovieRequest">
+		<wsdl:part element="tns:showAllMovieRequest" name="parameters">
+		</wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="showAllMovieResponse">
+		<wsdl:part element="tns:showAllMovieResponse" name="parameters">
+		</wsdl:part>
+	</wsdl:message>
+
+	<wsdl:message name="bookMyMovieRequest">
+		<wsdl:part element="tns:bookMyMovieRequest" name="parameters">
+		</wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="bookMyMovieResponse">
+		<wsdl:part element="tns:bookMyMovieResponse" name="parameters">
+		</wsdl:part>
+	</wsdl:message>
+	
+	<wsdl:message name="cancelMyMovieRequest">
+		<wsdl:part element="tns:cancelMyMovieRequest" name="parameters">
+		</wsdl:part>
+	</wsdl:message>
+	<wsdl:message name="cancelMyMovieResponse">
+		<wsdl:part element="tns:cancelMyMovieResponse" name="parameters">
+		</wsdl:part>
+	</wsdl:message>
+
+	<wsdl:portType name="CustomerMovieOrdersPortType">
+		<wsdl:operation name="GetMovies">
+			<wsdl:input message="tns:showAllMovieRequest" name ="showAllMovieRequest" />
+			<wsdl:output message="tns:showAllMovieResponse" name ="showAllMovieResponse"  />
+		</wsdl:operation>
+		<wsdl:operation name="BookMyMovies">
+			<wsdl:input message="tns:bookMyMovieRequest" name ="bookMyMovieRequest" />
+			<wsdl:output message="tns:bookMyMovieResponse" name="bookMyMovieResponse" />
+		</wsdl:operation>
+		<wsdl:operation name="CancelMyMovies">
+			<wsdl:input message="tns:cancelMyMovieRequest" name = "cancelMyMovieRequest"/>
+			<wsdl:output message="tns:cancelMyMovieResponse" name = "cancelMyMovieResponse"/>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="customerMovieOrdersSoapBinding" type="tns:CustomerMovieOrdersPortType">
+		<soap:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+		<wsdl:operation name="GetMovies">
+			<soap:operation soapAction="http://www.nilohit.org/movies/NewOperation" />
+			<wsdl:input name ="showAllMovieRequest">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output name ="showAllMovieResponse">
+				<soap:body use="literal" />
+			</wsdl:output >
+		</wsdl:operation>
+		<wsdl:operation name="BookMyMovies">
+			<soap:operation soapAction="http://www.nilohit.org/movies/NewOperation" />
+			<wsdl:input name ="bookMyMovieRequest">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output  name ="bookMyMovieResponse">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="CancelMyMovies">
+			<soap:operation soapAction="http://www.nilohit.org/movies/NewOperation" />
+			<wsdl:input name ="cancelMyMovieRequest">
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output  name ="cancelMyMovieResponse">
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="MovieService">
+		<wsdl:port binding="tns:customerMovieOrdersSoapBinding" name="movieOrdersPort">
+			<soap:address location="http://localhost:8080/services-wsvc/services/movieService" />
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>
