@@ -1,6 +1,8 @@
 
 package org.nilohit.movies;
 
+import java.io.Serializable;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -30,9 +32,13 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "showAllMovieRequest", propOrder = {
     "theaterId"
 })
-public class ShowAllMovieRequest {
+public class ShowAllMovieRequest implements Serializable {
 
-    @XmlElement(required = true)
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = -5564675454112073871L;
+	@XmlElement(required = true)
     protected String theaterId;
 
     /**

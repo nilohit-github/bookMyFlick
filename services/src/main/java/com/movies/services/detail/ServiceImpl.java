@@ -18,6 +18,8 @@ import org.nilohit.movies.MovieDetails;
 import org.nilohit.movies.ShowAllMovieRequest;
 import org.nilohit.movies.ShowAllMovieResponse;
 
+import com.process.businesslayer.ProcessMyRequest;
+
 //import com.bookMyFlick.businesslayer.ProcessMyRequestLocal;
 
 
@@ -28,9 +30,9 @@ import org.nilohit.movies.ShowAllMovieResponse;
 public class ServiceImpl implements CustomerMovieOrdersPortType {
 	
 	
-	//List<MovieDetails> mdResponse ;
-	//@EJB
-	//ProcessMyRequestLocal pmrl;
+	List<MovieDetails> mdResponse ;
+	@EJB
+	ProcessMyRequest pmrl;
 	
 
 	@Override
@@ -56,8 +58,8 @@ public class ServiceImpl implements CustomerMovieOrdersPortType {
 		}*/
 		//return response;
 		
-		
-			MovieDetails md1 = new MovieDetails();
+			res = (ShowAllMovieResponse)pmrl.findMyMovie(parameters);
+			/*MovieDetails md1 = new MovieDetails();
 			md1.setId("1");
 			md1.setMovieName("secret superstar");
 			GregorianCalendar gcal = new GregorianCalendar();
@@ -69,9 +71,9 @@ public class ServiceImpl implements CustomerMovieOrdersPortType {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			md1.setReleaseDt(xgcal);
+			md1.setReleaseDt(xgcal);*/
 
-			res.getMovieDetails().add(md1);
+			//res.getMovieDetails().add(md1);
 		
 		return res;
 		

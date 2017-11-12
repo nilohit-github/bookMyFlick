@@ -9,6 +9,7 @@
   <modules>
   	<module>services</module>	
   	<module>movie-ejb</module>
+  	
   </modules>
   <properties>
 	<!-- encoding -->

@@ -24,50 +24,18 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
-    private final static QName _ShowAllMovieResponse_QNAME = new QName("http://www.nilohit.org/movies/", "showAllMovieResponse");
-    private final static QName _ShowAllMovieRequest_QNAME = new QName("http://www.nilohit.org/movies/", "showAllMovieRequest");
-    private final static QName _CancelMyMovieRequest_QNAME = new QName("http://www.nilohit.org/movies/", "cancelMyMovieRequest");
-    private final static QName _BookMyMovieRequest_QNAME = new QName("http://www.nilohit.org/movies/", "bookMyMovieRequest");
-    private final static QName _CancelMyMovieResponse_QNAME = new QName("http://www.nilohit.org/movies/", "cancelMyMovieResponse");
     private final static QName _BookMyMovieResponse_QNAME = new QName("http://www.nilohit.org/movies/", "bookMyMovieResponse");
+    private final static QName _BookMyMovieRequest_QNAME = new QName("http://www.nilohit.org/movies/", "bookMyMovieRequest");
+    private final static QName _ShowAllMovieResponse_QNAME = new QName("http://www.nilohit.org/movies/", "showAllMovieResponse");
+    private final static QName _CancelMyMovieRequest_QNAME = new QName("http://www.nilohit.org/movies/", "cancelMyMovieRequest");
+    private final static QName _CancelMyMovieResponse_QNAME = new QName("http://www.nilohit.org/movies/", "cancelMyMovieResponse");
+    private final static QName _ShowAllMovieRequest_QNAME = new QName("http://www.nilohit.org/movies/", "showAllMovieRequest");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: org.nilohit.movies
      * 
      */
     public ObjectFactory() {
-    }
-
-    /**
-     * Create an instance of {@link ShowAllMovieRequest }
-     * 
-     */
-    public ShowAllMovieRequest createShowAllMovieRequest() {
-        return new ShowAllMovieRequest();
-    }
-
-    /**
-     * Create an instance of {@link ShowAllMovieResponse }
-     * 
-     */
-    public ShowAllMovieResponse createShowAllMovieResponse() {
-        return new ShowAllMovieResponse();
-    }
-
-    /**
-     * Create an instance of {@link BookMyMovieResponse }
-     * 
-     */
-    public BookMyMovieResponse createBookMyMovieResponse() {
-        return new BookMyMovieResponse();
-    }
-
-    /**
-     * Create an instance of {@link CancelMyMovieRequest }
-     * 
-     */
-    public CancelMyMovieRequest createCancelMyMovieRequest() {
-        return new CancelMyMovieRequest();
     }
 
     /**
@@ -79,6 +47,22 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link BookMyMovieResponse }
+     * 
+     */
+    public BookMyMovieResponse createBookMyMovieResponse() {
+        return new BookMyMovieResponse();
+    }
+
+    /**
+     * Create an instance of {@link ShowAllMovieRequest }
+     * 
+     */
+    public ShowAllMovieRequest createShowAllMovieRequest() {
+        return new ShowAllMovieRequest();
+    }
+
+    /**
      * Create an instance of {@link CancelMyMovieResponse }
      * 
      */
@@ -87,11 +71,19 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link Order }
+     * Create an instance of {@link CancelMyMovieRequest }
      * 
      */
-    public Order createOrder() {
-        return new Order();
+    public CancelMyMovieRequest createCancelMyMovieRequest() {
+        return new CancelMyMovieRequest();
+    }
+
+    /**
+     * Create an instance of {@link ShowAllMovieResponse }
+     * 
+     */
+    public ShowAllMovieResponse createShowAllMovieResponse() {
+        return new ShowAllMovieResponse();
     }
 
     /**
@@ -103,30 +95,20 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ShowAllMovieResponse }{@code >}}
+     * Create an instance of {@link Order }
      * 
      */
-    @XmlElementDecl(namespace = "http://www.nilohit.org/movies/", name = "showAllMovieResponse")
-    public JAXBElement<ShowAllMovieResponse> createShowAllMovieResponse(ShowAllMovieResponse value) {
-        return new JAXBElement<ShowAllMovieResponse>(_ShowAllMovieResponse_QNAME, ShowAllMovieResponse.class, null, value);
+    public Order createOrder() {
+        return new Order();
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link ShowAllMovieRequest }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link BookMyMovieResponse }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://www.nilohit.org/movies/", name = "showAllMovieRequest")
-    public JAXBElement<ShowAllMovieRequest> createShowAllMovieRequest(ShowAllMovieRequest value) {
-        return new JAXBElement<ShowAllMovieRequest>(_ShowAllMovieRequest_QNAME, ShowAllMovieRequest.class, null, value);
-    }
-
-    /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link CancelMyMovieRequest }{@code >}}
-     * 
-     */
-    @XmlElementDecl(namespace = "http://www.nilohit.org/movies/", name = "cancelMyMovieRequest")
-    public JAXBElement<CancelMyMovieRequest> createCancelMyMovieRequest(CancelMyMovieRequest value) {
-        return new JAXBElement<CancelMyMovieRequest>(_CancelMyMovieRequest_QNAME, CancelMyMovieRequest.class, null, value);
+    @XmlElementDecl(namespace = "http://www.nilohit.org/movies/", name = "bookMyMovieResponse")
+    public JAXBElement<BookMyMovieResponse> createBookMyMovieResponse(BookMyMovieResponse value) {
+        return new JAXBElement<BookMyMovieResponse>(_BookMyMovieResponse_QNAME, BookMyMovieResponse.class, null, value);
     }
 
     /**
@@ -139,6 +121,24 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ShowAllMovieResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://www.nilohit.org/movies/", name = "showAllMovieResponse")
+    public JAXBElement<ShowAllMovieResponse> createShowAllMovieResponse(ShowAllMovieResponse value) {
+        return new JAXBElement<ShowAllMovieResponse>(_ShowAllMovieResponse_QNAME, ShowAllMovieResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link CancelMyMovieRequest }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://www.nilohit.org/movies/", name = "cancelMyMovieRequest")
+    public JAXBElement<CancelMyMovieRequest> createCancelMyMovieRequest(CancelMyMovieRequest value) {
+        return new JAXBElement<CancelMyMovieRequest>(_CancelMyMovieRequest_QNAME, CancelMyMovieRequest.class, null, value);
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link CancelMyMovieResponse }{@code >}}
      * 
      */
@@ -148,12 +148,12 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link BookMyMovieResponse }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link ShowAllMovieRequest }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://www.nilohit.org/movies/", name = "bookMyMovieResponse")
-    public JAXBElement<BookMyMovieResponse> createBookMyMovieResponse(BookMyMovieResponse value) {
-        return new JAXBElement<BookMyMovieResponse>(_BookMyMovieResponse_QNAME, BookMyMovieResponse.class, null, value);
+    @XmlElementDecl(namespace = "http://www.nilohit.org/movies/", name = "showAllMovieRequest")
+    public JAXBElement<ShowAllMovieRequest> createShowAllMovieRequest(ShowAllMovieRequest value) {
+        return new JAXBElement<ShowAllMovieRequest>(_ShowAllMovieRequest_QNAME, ShowAllMovieRequest.class, null, value);
     }
 
 }

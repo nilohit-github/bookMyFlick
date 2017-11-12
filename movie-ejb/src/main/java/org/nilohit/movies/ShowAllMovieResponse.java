@@ -1,8 +1,10 @@
 
 package org.nilohit.movies;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlType;
@@ -31,7 +33,7 @@ import javax.xml.bind.annotation.XmlType;
 @XmlType(name = "showAllMovieResponse", propOrder = {
     "movieDetails"
 })
-public class ShowAllMovieResponse {
+public class ShowAllMovieResponse  implements Serializable{
 
     protected List<MovieDetails> movieDetails;
 

@@ -1,6 +1,8 @@
 
 package org.nilohit.movies;
 
+import java.io.Serializable;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -42,9 +44,13 @@ import javax.xml.datatype.XMLGregorianCalendar;
     "favourite",
     "imdb"
 })
-public class MovieDetails {
+public class MovieDetails implements Serializable{
 
-    @XmlElement(required = true)
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = -1842541663936603983L;
+	@XmlElement(required = true)
     protected String id;
     @XmlElement(required = true)
     protected String movieName;
