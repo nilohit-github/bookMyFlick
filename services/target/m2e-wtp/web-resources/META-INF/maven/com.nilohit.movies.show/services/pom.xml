@@ -1,19 +1,20 @@
 <?xml version="1.0"?>
-<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <modelVersion>4.0.0</modelVersion>
-  <parent>
-    <groupId>com.nilohit.movies.show</groupId>
-    <artifactId>bookMyFlick</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-  </parent>
-  
-  <artifactId>services</artifactId>
- 
-  <packaging>war</packaging>
-  <name>services Maven Webapp</name>
-  <url>http://maven.apache.org</url>
-  <properties>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.nilohit.movies.show</groupId>
+		<artifactId>bookMyFlick</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+
+	<artifactId>services</artifactId>
+
+	<packaging>war</packaging>
+	<name>services Maven Webapp</name>
+	<url>http://maven.apache.org</url>
+	<properties>
 		<cxf.version>3.0.2</cxf.version>
 	</properties>
 	<build>
@@ -30,31 +31,43 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-war-plugin</artifactId>
 			</plugin>
-			<plugin>
-				<groupId>org.apache.cxf</groupId>
-				<artifactId>cxf-codegen-plugin</artifactId>
-    			<version>${cxf.version}</version>
-				<executions>
-					<execution>
-						<id>generate-sources</id>
-						<phase>generate-sources</phase>
-						<configuration>
- 							<sourceRoot>${basedir}/src/main/java/</sourceRoot>
-							<wsdlOptions>
-								<wsdlOption>
-									<wsdl>${basedir}/src/main/webapp/WEB-INF/movies.wsdl</wsdl>
-								</wsdlOption>
-							</wsdlOptions>
-						</configuration>
-						<goals>
-    							<goal>wsdl2java</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
+			
 		</plugins>
 		<finalName>services-wsvc</finalName>
 	</build>
+
+	<profiles>
+		<profile>
+			<id>generate-source</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.cxf</groupId>
+						<artifactId>cxf-codegen-plugin</artifactId>
+						<version>${cxf.version}</version>
+						<executions>
+							<execution>
+								<id>generate-sources</id>
+								<phase>generate-sources</phase>
+								<configuration>
+									<sourceRoot>${basedir}/src/main/java/</sourceRoot>
+									<wsdlOptions>
+										<wsdlOption>
+											<wsdl>${basedir}/src/main/webapp/WEB-INF/movies.wsdl</wsdl>
+										</wsdlOption>
+									</wsdlOptions>
+								</configuration>
+								<goals>
+									<goal>wsdl2java</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+				<finalName>services-wsvc</finalName>
+			</build>
+		</profile>
+	</profiles>
 
 	<dependencies>
 		<dependency>
@@ -62,14 +75,14 @@
 			<artifactId>cxf-rt-frontend-jaxws</artifactId>
 			<version>${cxf.version}</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.apache.cxf</groupId>
 			<artifactId>cxf-rt-transports-http</artifactId>
 			<version>3.0.2</version>
 		</dependency>
-		
-		
+
+
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-core</artifactId>
@@ -110,17 +123,17 @@
 			<artifactId>commons-httpclient</artifactId>
 			<version>3.1</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>javax</groupId>
 			<artifactId>javaee-api</artifactId>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
-    <groupId>org.springframework</groupId>
-    <artifactId>spring-beans</artifactId>
-    <version>3.2.0.RELEASE</version>
-</dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-beans</artifactId>
+			<version>3.2.0.RELEASE</version>
+		</dependency>
 
 
 
@@ -129,6 +142,11 @@
 			<artifactId>movie-ejb</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 			<type>ejb</type>
+		</dependency>
+		<dependency>
+			<groupId>com.nilohit.movies.show</groupId>
+			<artifactId>common-project</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
 </project>

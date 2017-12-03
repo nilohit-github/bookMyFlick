@@ -19,10 +19,46 @@
 	implementor="com.movies.services.detail.ServiceImpl"
 	xmlns:customerOrders="http://www.nilohit.org/movies/"
 	serviceName="customerOrders:MovieService"/>
+	
+	<!-- <jaxws:server id="serviceOrdersWs" serviceClass="org.nilohit.movies.MovieService"
+		address="/customerOrders">
+		<jaxws:serviceBean>
+			<bean class="com.movies.services.detail.ServiceImpl" />
+		</jaxws:serviceBean>
+		<jaxws:inInterceptors>
+			<bean class="org.apache.cxf.ws.security.wss4j.WSS4JInInterceptor">
+				<constructor-arg>
+					<map>
+						<entry key="action" value="UsernameToken" />
+						<entry key="passwordType" value="PasswordText" />
+						<entry key="passwordCallbackRef" value-ref="myPasswordCallback" />
+					</map>
+				</constructor-arg>
+			</bean>
+		</jaxws:inInterceptors>
+	</jaxws:server> -->
+	
+	
+	
 
 	<cxf:bus>
+	<cxf:inInterceptors>
+		<bean class="org.apache.cxf.ws.security.wss4j.WSS4JInInterceptor">
+				<constructor-arg>
+					<map>
+						<entry key="action" value="UsernameToken" />
+						<entry key="passwordType" value="PasswordText" />
+						<entry key="passwordCallbackRef" value-ref="myPasswordCallback" />
+					</map>
+				</constructor-arg>
+			</bean>
+	
+	
+	</cxf:inInterceptors>
 		<cxf:features>
 			<cxf:logging />
 		</cxf:features>
 	</cxf:bus>
+	<bean id="myPasswordCallback" class="com.movies.security.UTPasswordCallback" />
+	 
 </beans>

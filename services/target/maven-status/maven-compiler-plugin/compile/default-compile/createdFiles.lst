@@ -1,9 +1,12 @@
+com\movies\services\detail\Testclass.class
 org\nilohit\movies\ShowAllMovieResponse.class
 org\nilohit\movies\BookMyMovieResponse.class
 org\nilohit\movies\BookMyMovieRequest.class
 org\nilohit\movies\ObjectFactory.class
 org\nilohit\movies\Order.class
 org\nilohit\movies\ShowAllMovieRequest.class
+com\movies\security\UTPasswordCallback.class
+com\process\businessprocessor\RequestProcessor.class
 org\nilohit\movies\CustomerMovieOrdersPortType.class
 org\nilohit\movies\MovieDetails.class
 org\nilohit\movies\MovieService.class

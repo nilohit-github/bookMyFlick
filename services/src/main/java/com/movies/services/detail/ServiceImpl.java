@@ -19,20 +19,14 @@ import org.nilohit.movies.ShowAllMovieRequest;
 import org.nilohit.movies.ShowAllMovieResponse;
 
 import com.process.businesslayer.ProcessMyRequest;
-
-//import com.bookMyFlick.businesslayer.ProcessMyRequestLocal;
-
-
-
-
-
+import com.process.businessprocessor.RequestProcessor;
 
 public class ServiceImpl implements CustomerMovieOrdersPortType {
 	
 	
 	List<MovieDetails> mdResponse ;
 	@EJB
-	ProcessMyRequest pmrl;
+	RequestProcessor pmrl;
 	
 
 	@Override
@@ -48,33 +42,8 @@ public class ServiceImpl implements CustomerMovieOrdersPortType {
 		// TODO Auto-generated method stub
 		String theater_id = parameters.getTheaterId();
 		ShowAllMovieResponse res = new ShowAllMovieResponse();
-	/*	if(!theater_id.isEmpty())
-		{
-			response = pmrl.findmovieList(parameters);
-			
-			
-		      
-			//	res.getMovieDetails().add((MovieDetails) mdResponse);
-		}*/
-		//return response;
-		
-			res = (ShowAllMovieResponse)pmrl.findMyMovie(parameters);
-			/*MovieDetails md1 = new MovieDetails();
-			md1.setId("1");
-			md1.setMovieName("secret superstar");
-			GregorianCalendar gcal = new GregorianCalendar();
-			XMLGregorianCalendar xgcal = null;
-			try {
-				xgcal = DatatypeFactory.newInstance().newXMLGregorianCalendar(
-						gcal);
-			} catch (DatatypeConfigurationException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			md1.setReleaseDt(xgcal);*/
-
-			//res.getMovieDetails().add(md1);
-		
+		RequestProcessor rp = new RequestProcessor();
+		res = rp.findMyMovie(parameters);
 		return res;
 		
 	}
